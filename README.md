@@ -1,4 +1,4 @@
-<h1> Ferramenta de Visualização 2D de Dados Científicos </h1>
+<h1> Análise e Visualização de Dados da Produção de Petróleo e Gás no Brasil </h1>
 <p>Este trabalho foi realizado para a disciplina de Visualização de informação - PUC-Rio.</p>
 
 Este trabalho apresentar a evolução da produção de petróleo e gás no Brasil, explorando os
