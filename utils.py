@@ -1,5 +1,6 @@
 # Imports
 import pandas as pd
+import numpy as np
 import os
 from os import listdir
 from os.path import isfile, join
@@ -127,5 +128,31 @@ def create_folder(path):
         print('Pasta criada com sucesso!')
 
 
+def dataframe_region(df, region='Estado'):
+    """
+    Cria um novo DataFrame agregando a produção de petróleo e gás natural por ano e região.
 
+    Parâmetros:
+    - df (pandas.DataFrame): DataFrame contendo os dados originais.
+    - region (str): Nome da coluna que representa a região (padrão é 'Estado').
+
+    Retorna:
+    - pandas.DataFrame: Novo DataFrame agregado por ano e região com produção de petróleo e gás natural.
+    """
+    #region=["Estado", "Bacia"]
+    # Produção por ano de petróleo de gás
+    dataset_estados = df[['Período', region, 'Petróleo (bbl/dia)', 'Gás Natural_total (Mm³/dia)']]
+    dataset_estados['Período'] = dataset_estados['Período'].map(lambda x: str(x))
+
+    dataset_estados = dataset_estados.groupby(by=['Período', region]).sum().groupby(level=[0]).cumsum().reset_index()
+    dataset_estados['Período'] = pd.to_datetime(dataset_estados['Período']).dt.year
+    dataset_estados = dataset_estados.groupby(by=['Período', region]).sum().groupby(level=[0]).cumsum().reset_index()
+
+    dataset_estados['Petróleo (bbl/dia)'] = dataset_estados['Petróleo (bbl/dia)']/12
+    dataset_estados['Gás Natural_total (Mm³/dia)'] = dataset_estados['Gás Natural_total (Mm³/dia)']/12
+
+    dataset_estados['Petróleo (bbl/dia)'] = dataset_estados['Petróleo (bbl/dia)'].apply(np.ceil)
+    dataset_estados['Gás Natural_total (Mm³/dia)'] = dataset_estados['Gás Natural_total (Mm³/dia)'].apply(np.ceil)
+
+    return dataset_estados
 
