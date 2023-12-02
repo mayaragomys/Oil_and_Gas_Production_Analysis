@@ -1,11 +1,6 @@
 # Imports
 import pandas as pd
 import numpy as np
-import matplotlib
-import matplotlib.pyplot as plt
-import seaborn as sns
-import missingno as ms # para tratamento de missings
-from matplotlib import cm
 from utils import *
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
