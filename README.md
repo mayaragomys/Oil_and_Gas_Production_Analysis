@@ -19,7 +19,7 @@ pip install -r requirements.txt
 ```
 
 ### 2 Conjunto de dados:
-O conjunto de dados [sem processamento](https://github.com/mayaragomys/Oil_and_Gas_Production_Analysis/blob/main/dataset/raw/datasets_2021_2023.csv) e com [processamento]() estão disponíveis neste repositório.
+O conjunto de dados com [processamento](https://github.com/mayaragomys/Oil_and_Gas_Production_Analysis/blob/main/dataset/preprocess.rar) estão disponíveis neste repositório.
 
 ### 3 Visualizações:
 
