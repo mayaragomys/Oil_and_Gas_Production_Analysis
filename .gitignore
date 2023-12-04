@@ -3,6 +3,7 @@ __pycache__/
 
 # Distribution / packaging
 preprocess
+app
 
 datasets_2005_2023.csv
 evoluction_production.csv
